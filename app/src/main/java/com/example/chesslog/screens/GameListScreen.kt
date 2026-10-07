@@ -1,4 +1,4 @@
-package com.example.chesslog
+package com.example.chesslog.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,8 +17,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.chesslog.Game
+import com.example.chesslog.GameViewModel
 
 @Composable
 fun GameListScreen(
@@ -73,7 +76,7 @@ fun GameListScreen(
                     .fillMaxWidth()
                     .weight(1f),
 
-                horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally,
+                horizontalAlignment = Alignment.CenterHorizontally,
 
                 verticalArrangement = Arrangement.Center
             ) {

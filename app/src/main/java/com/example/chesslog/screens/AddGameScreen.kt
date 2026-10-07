@@ -1,4 +1,4 @@
-package com.example.chesslog
+package com.example.chesslog.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -19,28 +19,27 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.chesslog.Game
 
 @Composable
-fun EditGameScreen(
-    game: Game,
-    onUpdate: (Game) -> Unit,
-    onBack: () -> Unit
+fun AddGameScreen(
+    onSave: (Game) -> Unit
 ) {
 
     var opponent by remember {
-        mutableStateOf(game.opponent)
+        mutableStateOf("")
     }
 
     var opening by remember {
-        mutableStateOf(game.opening)
+        mutableStateOf("")
     }
 
     var tournament by remember {
-        mutableStateOf(game.tournament)
+        mutableStateOf("")
     }
 
     var result by remember {
-        mutableStateOf(game.result)
+        mutableStateOf("")
     }
 
     var showError by remember {
@@ -55,7 +54,7 @@ fun EditGameScreen(
     ) {
 
         Text(
-            text = "Edit Chess Game"
+            text = "Add Chess Game"
         )
 
         Spacer(
@@ -238,33 +237,20 @@ fun EditGameScreen(
 
                 } else {
 
-                    val updatedGame = Game(
-                        id = game.id,
+                    val newGame = Game(
+                        id = 0,
                         opponent = opponent,
                         result = result,
                         opening = opening,
                         tournament = tournament
                     )
 
-                    onUpdate(updatedGame)
+                    onSave(newGame)
                 }
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Update Game")
-        }
-
-
-        Spacer(
-            modifier = Modifier.height(8.dp)
-        )
-
-
-        OutlinedButton(
-            onClick = onBack,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Cancel")
+            Text("Save Game")
         }
     }
 }

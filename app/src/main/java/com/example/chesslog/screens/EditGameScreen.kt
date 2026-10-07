@@ -1,4 +1,4 @@
-package com.example.chesslog
+package com.example.chesslog.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -19,26 +19,29 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.chesslog.Game
 
 @Composable
-fun AddGameScreen(
-    onSave: (Game) -> Unit
+fun EditGameScreen(
+    game: Game,
+    onUpdate: (Game) -> Unit,
+    onBack: () -> Unit
 ) {
 
     var opponent by remember {
-        mutableStateOf("")
+        mutableStateOf(game.opponent)
     }
 
     var opening by remember {
-        mutableStateOf("")
+        mutableStateOf(game.opening)
     }
 
     var tournament by remember {
-        mutableStateOf("")
+        mutableStateOf(game.tournament)
     }
 
     var result by remember {
-        mutableStateOf("")
+        mutableStateOf(game.result)
     }
 
     var showError by remember {
@@ -53,7 +56,7 @@ fun AddGameScreen(
     ) {
 
         Text(
-            text = "Add Chess Game"
+            text = "Edit Chess Game"
         )
 
         Spacer(
@@ -236,20 +239,33 @@ fun AddGameScreen(
 
                 } else {
 
-                    val newGame = Game(
-                        id = 0,
+                    val updatedGame = Game(
+                        id = game.id,
                         opponent = opponent,
                         result = result,
                         opening = opening,
                         tournament = tournament
                     )
 
-                    onSave(newGame)
+                    onUpdate(updatedGame)
                 }
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Save Game")
+            Text("Update Game")
+        }
+
+
+        Spacer(
+            modifier = Modifier.height(8.dp)
+        )
+
+
+        OutlinedButton(
+            onClick = onBack,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Cancel")
         }
     }
 }
