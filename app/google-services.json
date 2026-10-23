@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "220739539841",
+    "project_id": "cheog-414d1",
+    "storage_bucket": "cheog-414d1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220739539841:android:de904aa99da0bf94788e80",
+        "android_client_info": {
+          "package_name": "com.example.chesslog"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-UwoY8xYPO1OQxbIYoW95diLBEeqenR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
